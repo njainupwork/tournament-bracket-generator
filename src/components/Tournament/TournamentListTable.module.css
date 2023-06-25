@@ -1,0 +1,96 @@
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.addButton {
+  padding: 8px 16px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #0d8edf;
+}
+
+.tournamentList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.tournamentItem {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tournamentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.tournamentHeader.expanded {
+  background-color: #d4d4d4;
+}
+
+.toggleButton {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.tournamentDetails {
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.tournamentName {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.tournamentTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tournamentTable th,
+.tournamentTable td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tournamentTable th {
+  text-align: left;
+}
+
+.submitButton {
+  padding: 6px 12px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
