@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import styles from './NewTournament.module.css'
 
-type NewTournamentProps = {}
+import TournamentBracket from '../../../contracts/TournamentBracket.json'
+import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi'
+import { useRouter } from 'next/router'
 
-const NewTournament: React.FC<NewTournamentProps> = () => {
-  const [playerCount, setPlayerCount] = useState<number>(0)
+const NewTournament: React.FC = () => {
+  const router = useRouter()
+  const [playerCount, setPlayerCount] = useState<number>(2)
   const [error, setError] = useState<string>('')
   const [inputFields, setInputFields] = useState(0)
-  const [players, setPlayers] = useState([])
+  const [players, setPlayers] = useState<string[]>(['', ''])
+
+  const { config } = usePrepareContractWrite({
+    address: TournamentBracket.address as `0x${string}`,
+    abi: TournamentBracket.abi,
+    functionName: 'createNewTournament',
+    args: [players],
+  })
+
+  const { data: createData, write: createTournament } = useContractWrite(config)
+  const { isSuccess } = useWaitForTransaction({
+    hash: createData?.hash,
+  })
+
+  useEffect(() => {
+    if (isSuccess) router.push('/')
+  }, [isSuccess])
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -34,7 +53,7 @@ const NewTournament: React.FC<NewTournamentProps> = () => {
   }
 
   const handleSubmit = () => {
-    console.log('Form values:', players)
+    if (createTournament && players.length > 0) createTournament()
   }
 
   const renderInputFields = () => {

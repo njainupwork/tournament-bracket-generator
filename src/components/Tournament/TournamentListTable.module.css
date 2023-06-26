@@ -77,12 +77,24 @@
   text-align: left;
 }
 
+.submitButtons {
+  display: flex;
+  column-gap: 10px;
+}
+
 .submitButton {
   padding: 6px 12px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+.submitButton:disabled {
+  background-color: grey !important;
+  color: #fff;
+  border: none;
+  cursor: not-allowed;
 }
 
 .submitButton:hover {

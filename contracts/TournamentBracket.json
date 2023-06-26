@@ -1,0 +1,110 @@
+{
+  "address": "0xDeCaee987Ab999F686915a4C4e6587D90bAdA0B8",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": false, "internalType": "uint256", "name": "tournamentId", "type": "uint256" },
+        { "indexed": false, "internalType": "uint256", "name": "contestIndex", "type": "uint256" },
+        { "indexed": false, "internalType": "string", "name": "winner", "type": "string" }
+      ],
+      "name": "ContestResult",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": false, "internalType": "uint256", "name": "tournamentId", "type": "uint256" },
+        {
+          "components": [
+            { "internalType": "string", "name": "player1", "type": "string" },
+            { "internalType": "string", "name": "player2", "type": "string" },
+            { "internalType": "string", "name": "winner", "type": "string" },
+            { "internalType": "uint128", "name": "resultTimestamp", "type": "uint128" },
+            { "internalType": "bool", "name": "isFinished", "type": "bool" }
+          ],
+          "indexed": false,
+          "internalType": "struct TournamentBracket.Contest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "TournamentCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [{ "internalType": "string[]", "name": "_participants", "type": "string[]" }],
+      "name": "createNewTournament",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllTournaments",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "uint128", "name": "id", "type": "uint128" },
+            { "internalType": "address", "name": "admin", "type": "address" },
+            {
+              "components": [
+                { "internalType": "string", "name": "player1", "type": "string" },
+                { "internalType": "string", "name": "player2", "type": "string" },
+                { "internalType": "string", "name": "winner", "type": "string" },
+                { "internalType": "uint128", "name": "resultTimestamp", "type": "uint128" },
+                { "internalType": "bool", "name": "isFinished", "type": "bool" }
+              ],
+              "internalType": "struct TournamentBracket.Contest[]",
+              "name": "contests",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct TournamentBracket.Tournament[]",
+          "name": "tournaments",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "_tournamentId", "type": "uint256" }],
+      "name": "getBracket",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "string", "name": "player1", "type": "string" },
+            { "internalType": "string", "name": "player2", "type": "string" },
+            { "internalType": "string", "name": "winner", "type": "string" },
+            { "internalType": "uint128", "name": "resultTimestamp", "type": "uint128" },
+            { "internalType": "bool", "name": "isFinished", "type": "bool" }
+          ],
+          "internalType": "struct TournamentBracket.Contest[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestTournamentId",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_tournamentId", "type": "uint256" },
+        { "internalType": "uint256", "name": "_contestIndex", "type": "uint256" },
+        { "internalType": "string", "name": "_winner", "type": "string" }
+      ],
+      "name": "submitContestResult",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}
